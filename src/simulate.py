@@ -83,7 +83,7 @@ class Simulate(object):
 
             print(i)
             while True:
-                self.arr= self.algorithm.updateStep(self.arr)
+                self.arr= self.algorithm.updateStepConst(self.arr)
                 self.epoch+=1
                 
                 if self.epoch % self.N == 0:
@@ -92,7 +92,7 @@ class Simulate(object):
                     self.energyArray.append(self.observables.findEnergy(self.arr, self.h))
                     self.magnetisationStaggeredArray.append(self.observables.findMagnetisationStaggered(self.arr))
                 
-                if self.sweeps % 150==0:
+                if self.sweeps % 200==0:
                     self.magnetisationAverage.append(self.observables.findAverage(self.magnetisationArray))
                     self.energyAverage.append(self.observables.findAverage(self.energyArray))
                     self.magnetisationStaggeredAverage.append(self.observables.findAverage(self.magnetisationStaggeredArray))
@@ -131,9 +131,9 @@ if __name__== '__main__':
     # simulation.runSimulationVisualisation()
 
     # part 2
-    # simulation= Simulate(50, 0)
-    # simulation.runSimulationMagnetisationRange()
+    simulation= Simulate(50, 0)
+    simulation.runSimulationMagnetisationRange()
 
     # part 3
-    simulation= Simulate(50, 0)
-    simulation.runSimulationVariableH(25, 10000, 10)
+    # simulation= Simulate(50, 0)
+    # simulation.runSimulationVariableH(25, 10000, 10)

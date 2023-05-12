@@ -45,10 +45,9 @@ class Observables(object):
     
         return np.average(np.absolute(arr))
     
-    
     def findVariance(self, arr):
         
-        return np.var(np.absolute(arr))/2500
+        return (np.average(np.array(arr)**2) - np.average(arr)**2)/2500
     
     def findField(self, t):
 
